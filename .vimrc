@@ -9,6 +9,18 @@ set smartcase
 set autoindent
 set background=dark
 set mouse=a
+let mapleader = ","
 
 filetype plugin indent on
 syntax on
+
+" Set up a way to toggle between relative and absolute line numbering
+function! NumberToggle()
+    if (&relativenumber)
+        set norelativenumber 
+    else
+        set relativenumber
+    endif
+endfunc
+
+nnoremap <leader>n :call NumberToggle()<cr>
