@@ -13,25 +13,6 @@ static const unsigned int snap      = 6;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
-/* moveresize */
-
-/*
-static void moveresize(const Arg *arg) {
-    XEvent ev;
-    Monitor *m = selmon;
-
-    if(!(m->sel && arg && arg->v && m->sel->isfloating))
-        return;
-
-    resize(m->sel, m->sel->x + ((int *)arg->v)[0],
-            m->sel->y + ((int *)arg->v)[1],
-            m->sel->w + ((int *)arg->v)[2],
-            m->sel->h + ((int *)arg->v)[3],
-            True);
-
-    while(XCheckMaskEvent(dpy, EnterWindowMask, &ev));
-}*/
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
