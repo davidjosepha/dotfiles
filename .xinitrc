@@ -14,19 +14,20 @@ fi
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
 # clock in menubar
-while true; do
-  xsetroot -name "$( date +"%F %R" )"
-  sleep 1m
-done &
+# while true; do
+#   xsetroot -name "$( date +"%F %R" )"
+#   sleep 1m
+# done &
 
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.mpd/pid ] && mpd
+[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
 
 # audio mixer
-xterm -name alsamixer -e alsamixer &
+# xterm -name alsamixer -e alsamixer &
 
 # keybinder (audio keys)
-xterm -name xbindkeys -e xbindkeys &
+#xterm -name xbindkeys -e xbindkeys &
 
 # set wallpaper
 eval `cat ~/.fehbg`
@@ -36,9 +37,3 @@ compton -c -b
 
 # start dwm
 exec /usr/bin/dwm
-
-# exec dwm
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
