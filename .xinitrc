@@ -13,11 +13,11 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# clock in menubar
-# while true; do
-#   xsetroot -name "$( date +"%F %R" )"
-#   sleep 1m
-# done &
+clock in menubar
+while true; do
+  xsetroot -name "$( date +"%F %R" )"
+  sleep 15s
+done &
 
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.mpd/pid ] && mpd
