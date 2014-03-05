@@ -38,7 +38,7 @@ draw_shades no
 use_xft yes
 xftfont DejaVu Sans Mono:size=12
 gap_x 17
-gap_y 748
+gap_y 751
 minimum_size 306 306
 net_avg_samples 2
 no_buffers yes
