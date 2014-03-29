@@ -7,10 +7,9 @@ static const char dmenufont[] = "Terminus:Clear:size=8:antialias=true:hinting=tr
 static const char normbordercolor[] = "#1D1D1D";
 static const char normbgcolor[]     = "#101010";
 static const char normfgcolor[]     = "#cccccc";
-//static const char selbordercolor[]  = "#7086A8";
 static const char selbordercolor[]  = "#526170";
-//static const char selbordercolor[]  = "#475b70";
-static const char selbgcolor[]      = "#607698";
+static const char selbgcolor[]      = "#526170";
+//static const char selbgcolor[]      = "#607698";
 static const char selfgcolor[]      = "#dddddd";
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 6;       /* snap pixel */
