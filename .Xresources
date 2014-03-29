@@ -4,26 +4,24 @@
 #xterm*font:         -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
 #xterm*boldFont:     -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
 #xterm*boldFont:  terminus-12 
-xterm*locale: true
-xterm*boldMode: false
-*background: #1B1B1B
-*foreground: #c0c0c0
-#*foreground: #ffffff
+#xterm*locale: true
+#xterm*boldMode: false
+*background: #101010
+*foreground: #d0d0d0
 *cursorColor: #93a1a1
-!Black
-*color0:			#3D3D3D
-*color8:			#4D4D4D	
-!Blue
+
+*color0:			        #3D3D3D
+*color8:			        #4D4D4D	
 *color1:	                #7086A8
 *color9:	                #BCD8FF 
 *color2:	                #3EA290
 *color10:	                #8CA8A3
-*color3:	                #6699CC
-*color11:	                #99CCFF
+*color3:	                #7498bd
+*color11:	                #94b8dd
 *color4:	                #42628A
 *color12:	                #83AFE1
-*color5:	                #596196
-*color13:	                #7882BF
+*color5:	                #57657b
+*color13:	                #96a2b5
 *color6:	                #8292B2
 *color14:	                #95A7CC
 *color7:	                #C8CACC

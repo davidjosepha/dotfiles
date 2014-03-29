@@ -47,7 +47,7 @@ out_to_stderr no
 extra_newline no
 own_window yes
 own_window_class Conky
-own_window_colour 1B1B1B
+own_window_colour 101010
 own_window_type desktop
 stippled_borders 0
 update_interval 1.0

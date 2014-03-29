@@ -13,7 +13,7 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-clock in menubar
+# clock in menubar
 while true; do
   xsetroot -name "$( date +"%F %R" )"
   sleep 15s
