@@ -19,6 +19,10 @@ while true; do
   sleep 15s
 done &
 
+# turn off screen blanking
+xset dpms 0 0 0
+xset -dpms s off
+
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.mpd/pid ] && mpd
 [[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
@@ -34,6 +38,9 @@ eval `cat ~/.fehbg`
 
 # window dropshadow
 compton -c -b
+
+# this helps with full screen games
+wmname LG3D
 
 # start dwm
 exec /usr/bin/dwm
