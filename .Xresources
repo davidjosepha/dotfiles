@@ -1,11 +1,3 @@
-#xterm*font:      terminus-12 
-#xterm*font:         -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
-#xterm*boldFont:     -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
-#xterm*font:         -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
-#xterm*boldFont:     -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-1
-#xterm*boldFont:  terminus-12 
-#xterm*locale: true
-#xterm*boldMode: false
 *background: #101010
 *foreground: #d0d0d0
 *cursorColor: #93a1a1
@@ -32,3 +24,4 @@ URxvt.font: xft:Terminus:Crisp:size=8:antialias=true:hinting=true
 URxvt.boldFont:
 
 Xft.dpi: 96
+URxvt*geometry:110x24+12+26
