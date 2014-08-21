@@ -48,7 +48,7 @@ extra_newline no
 own_window yes
 own_window_class Conky
 own_window_colour 101010
-own_window_type desktop
+own_window_type normal
 stippled_borders 0
 update_interval 1.0
 uppercase no
