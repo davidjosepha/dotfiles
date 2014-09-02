@@ -38,8 +38,8 @@ draw_shades no
 use_xft yes
 xftfont DejaVu Sans Mono:size=12
 gap_x 17
-gap_y 751
-minimum_size 306 306
+gap_y 775
+minimum_size 282 282
 net_avg_samples 2
 no_buffers yes
 out_to_console no
@@ -61,4 +61,4 @@ imlib_cache_size 0
 
 TEXT
 ${execi .5 python2 ~/.conky/mpd-cover.py}
-${image /tmp/cover -s 306x306}
+${image /tmp/cover -s 282x282}

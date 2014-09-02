@@ -94,6 +94,7 @@ struct Client {
 	char name[256];
 	float mina, maxa;
 	int x, y, w, h;
+	int ix, iy, iw, ih;
 	int oldx, oldy, oldw, oldh;
 	int basew, baseh, incw, inch, maxw, maxh, minw, minh;
 	int bw, oldbw;
@@ -165,6 +166,7 @@ typedef struct {
 	const char *instance;
 	const char *title;
 	unsigned int tags;
+    int x, y, w, h;
 	Bool isfloating;
 	int monitor;
 } Rule;
@@ -345,6 +347,10 @@ applyrules(Client *c) {
 		{
 			c->isfloating = r->isfloating;
 			c->tags |= r->tags;
+            c->ix = r->x;
+            c->iy = r->y;
+            c->iw = r->w;
+            c->ih = r->h;
 			for(m = mons; m && m->num != r->monitor; m = m->next);
 			if(m)
 				c->mon = m;
@@ -1151,6 +1157,11 @@ manage(Window w, XWindowAttributes *wa) {
 	c->y = MAX(c->y, ((c->mon->by == c->mon->my) && (c->x + (c->w / 2) >= c->mon->wx)
 	           && (c->x + (c->w / 2) < c->mon->wx + c->mon->ww)) ? bh : c->mon->my);
 	c->bw = borderpx;
+
+    if(c->ix) c->x = c->ix;
+    if(c->iy) c->y = c->iy;
+    if(c->iw) c->w = c->iw;
+    if(c->ih) c->h = c->ih;
 
 	wc.border_width = c->bw;
 	XConfigureWindow(dpy, w, CWBorderWidth, &wc);

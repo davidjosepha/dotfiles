@@ -9,6 +9,8 @@ set smartcase
 set autoindent
 set background=dark
 set mouse=a
+set noesckeys
+set nocompatible
 let mapleader = ","
 
 filetype plugin indent on
