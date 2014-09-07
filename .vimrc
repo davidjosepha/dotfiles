@@ -26,3 +26,5 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
+
+colors peachpuff

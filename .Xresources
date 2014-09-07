@@ -2,26 +2,73 @@
 *foreground: #d0d0d0
 *cursorColor: #93a1a1
 
-*color0:			        #3D3D3D
-*color8:			        #4D4D4D	
-*color1:	                #7086A8
-*color9:	                #BCD8FF 
-*color2:	                #3EA290
-*color10:	                #8CA8A3
-*color3:	                #7498bd
-*color11:	                #94b8dd
-*color4:	                #42628A
-*color12:	                #83AFE1
-*color5:	                #57657b
-*color13:	                #96a2b5
-*color6:	                #8292B2
-*color14:	                #95A7CC
-*color7:	                #C8CACC
-*color15:	                #EDEFF2
+# *color0:			        #3D3D3D
+
+# *color1:	                #7086A8
+# *color2:	                #3EA290
+# *color3:	                #7498bd
+# *color4:	                #42628A
+# *color5:	                #57657b
+# *color6:	                #8292B2
+
+# *color7:	                #C8CACC
+
+# *color8:			        #4D4D4D	
+
+# *color9:	                #BCD8FF 
+# *color10:	                #8CA8A3
+# *color11:	                #94b8dd
+# *color12:	                #83AFE1
+# *color13:	                #96a2b5
+# *color14:	                #95A7CC
+
+# *color15:	                #EDEFF2
+
+#515f6e
+#465a6e
+
+# ?
+*color0: #3D3D3D
+*color1: #656d75
+*color2: #5a805f
+*color3: #5a7780
+*color4: #515f6e
+*color5: #6e5155
+*color6: #525f61
+*color7: #252525
+
+# ?
+*color8: #4D4D4D	
+*color9: #596875
+*color10: #4d8053
+*color11: #4d7480
+*color12: #465a6e
+*color13: #6e464b
+*color14: #3b585b
+# ?
+*color15: #EDEFF2
+
+## Dark
+#*color0: #3f3f4c
+#*color1: #ac6a76
+#*color2: #7b8c58
+#*color3: #bc945a
+#*color4: #58698c
+#*color5: #7b5e8d
+#*color6: #82a1b2
+#*color7: #cccaca
+## Light
+#*color8: #525263
+#*color9: #c47987
+#*color10: #90a366
+#*color11: #d4a765
+#*color12: #7086b2
+#*color13: #9572ab
+#*color14: #95b9cc
+#*color15: #edeff2
 
 URxvt.scrollBar:    false
 URxvt.font: xft:Terminus:Crisp:size=8:antialias=true:hinting=true
 URxvt.boldFont:
 
 Xft.dpi: 96
-URxvt*geometry:110x24+12+26

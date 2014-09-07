@@ -7,8 +7,8 @@ static const char dmenufont[] = "Terminus:Clear:size=8:antialias=true:hinting=tr
 static const char normbordercolor[] = "#1D1D1D";
 static const char normbgcolor[]     = "#101010";
 static const char normfgcolor[]     = "#cccccc";
-static const char selbordercolor[]  = "#526170";
-static const char selbgcolor[]      = "#526170";
+static const char selbordercolor[]  = "#404750";
+static const char selbgcolor[]      = "#404750";
 static const char selfgcolor[]      = "#dddddd";
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
 static const unsigned int snap      = 6;       /* snap pixel */
@@ -21,7 +21,7 @@ static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "�
 static const Rule rules[] = {
 	/* class        instance    title    tags    x     y     w     h        floating   monitor */
 	{ NULL,         NULL,       NULL,    0,      12,   26,   0,    0,       True,      -1 },
-	{ "URxvt",      NULL,       NULL,    0,      12,   26,   618,  336,     True,      -1 },
+	{ "URxvt",      NULL,       NULL,    0,      12,   26,   618,  360,     True,      -1 },
 	{ "Conky",      NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
     /* right 2/3s */
 	{ "Dwb",        NULL,       NULL,    0,      648,  26,   1252, 1036,    True,      -1 },
@@ -90,8 +90,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -12 }}},
     { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 12, 0 }}},
     { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -12, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 348 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -348 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 372 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -372 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 636, 0, 0, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -636, 0, 0, 0 }}},
 	TAGKEYS(                        XK_1,                      0)
