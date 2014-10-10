@@ -20,13 +20,13 @@ static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "�
 
 static const Rule rules[] = {
 	/* class        instance    title    tags    x     y     w     h        floating   monitor */
-	{ NULL,         NULL,       NULL,    0,      12,   26,   0,    0,       True,      -1 },
-	{ "URxvt",      NULL,       NULL,    0,      12,   26,   618,  360,     True,      -1 },
+	{ NULL,         NULL,       NULL,    0,      12,   31,   0,    0,       True,      -1 },
+	{ "URxvt",      NULL,       NULL,    0,      12,   31,   618,  336,     True,      -1 },
 	{ "Conky",      NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
     /* right 2/3s */
-	{ "Dwb",        NULL,       NULL,    0,      648,  26,   1252, 1036,    True,      -1 },
-	{ "Filezilla",  NULL,       NULL,    0,      648,  26,   1252, 1036,    True,      -1 },
-	{ "Firefox",    NULL,       NULL,    0,      648,  26,   1252, 1036,    True,      -1 },
+	{ "Dwb",        NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
+	{ "Filezilla",  NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
+	{ "Firefox",    NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
 	{ "Gimp",       NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
 };
 
@@ -44,6 +44,7 @@ static const Layout layouts[] = {
 
 /* key definitions */
 #define MODKEY Mod1Mask
+#define WINKEY Mod2Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -56,11 +57,15 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+static const char *xkbdvorakcmd[]  = { "setxkbmap", "dvorak", NULL };
+static const char *xkbrucmd[]  = { "setxkbmap", "rua", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ ControlMask,                  XK_semicolon, spawn,       {.v = xkbrucmd } },
+	{ ControlMask,                  XK_Cyrillic_ya, spawn,     {.v = xkbdvorakcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -90,10 +95,14 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -12 }}},
     { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 12, 0 }}},
     { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -12, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 372 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -372 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 348, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, -348, 0, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 636, 0, 0, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -636, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,     {.v = (int []){ 0, 0, 0, 348 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,     {.v = (int []){ 0, 0, 0, -348 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,     {.v = (int []){ 0, 0, 636, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,     {.v = (int []){ 0, 0, -636, 0 }}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

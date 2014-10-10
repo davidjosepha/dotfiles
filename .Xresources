@@ -27,25 +27,38 @@
 #515f6e
 #465a6e
 
-# ?
-*color0: #3D3D3D
-*color1: #656d75
-*color2: #5a805f
-*color3: #5a7780
-*color4: #515f6e
-*color5: #6e5155
-*color6: #525f61
-*color7: #252525
+! black
+*color0:  #3D3D3D
+! dark red
+*color1:  #656d75
+! dark green
+*color2:  #5a805f
+! dark yellow
+*color3:  #5a7780
+! dark blue
+*color4:  #515f6e
+! dark magenta
+*color5:  #6e5155
+! dark cyan
+*color6:  #525f61
+! light grey
+*color7:  #4D4D4D
 
-# ?
-*color8: #4D4D4D	
-*color9: #596875
+! dark grey
+*color8:  #4D4D4D
+! red
+*color9:  #596875
+! green
 *color10: #4d8053
+! yellow
 *color11: #4d7480
+! blue
 *color12: #465a6e
+! magenta
 *color13: #6e464b
+! cyan
 *color14: #3b585b
-# ?
+! white
 *color15: #EDEFF2
 
 ## Dark
