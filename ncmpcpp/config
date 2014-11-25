@@ -32,7 +32,7 @@ mpd_port = 6600
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /data/music
+mpd_music_dir = /media/music
 #
 mpd_crossfade_time = 5
 #
@@ -296,7 +296,7 @@ song_columns_list_format = (20)[red]{a} (30)[magenta]{b} (44)[blue]{t} (7f)[red]
 #
 #playlist_shorten_total_times = no
 #
-#playlist_separate_albums = no
+playlist_separate_albums = no
 #
 ##
 ## Note: Possible display modes: classic, columns.
