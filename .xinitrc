@@ -24,8 +24,10 @@ xset dpms 0 0 0
 xset -dpms s off
 
 # MPD daemon start (if no other user instance exists)
-[ ! -s ~/.mpd/pid ] && mpd
-[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
+# [ ! -s ~/.mpd/pid ] && mpd
+# [[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
+mpdcron &
+xbindkeys &
 
 # audio mixer
 # xterm -name alsamixer -e alsamixer &
