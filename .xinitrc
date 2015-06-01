@@ -16,7 +16,7 @@ fi
 # clock in menubar
 while true; do
   xsetroot -name "$( date +"%Y-%m-%d %I:%M %p" )"
-  sleep 15s
+  sleep 1s
 done &
 
 # turn off screen blanking
@@ -24,10 +24,9 @@ xset dpms 0 0 0
 xset -dpms s off
 
 # MPD daemon start (if no other user instance exists)
-# [ ! -s ~/.mpd/pid ] && mpd
-# [[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
+#[ ! -s ~/.mpd/pid ] && mpd
+#[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
 mpdcron &
-xbindkeys &
 
 # audio mixer
 # xterm -name alsamixer -e alsamixer &
@@ -36,10 +35,13 @@ xbindkeys &
 #xterm -name xbindkeys -e xbindkeys &
 
 # set wallpaper
-eval `cat ~/.fehbg`
+~/.fehbg
+
+# start album art daemon
+exec ~/scripts/albumart/albumartd.sh &
 
 # window dropshadow
-compton -c -b
+compton -c -b -e .2
 
 # this helps with full screen games
 wmname LG3D
