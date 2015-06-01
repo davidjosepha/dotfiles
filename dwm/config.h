@@ -1,32 +1,38 @@
 /* See LICENSE file for copyright and license details. */
 
+#define HINCREMENT 7
+#define VINCREMENT 12 
+
 /* appearance */
 //static const char font[]            = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
-static const char font[] = "Terminus 8";
-static const char dmenufont[] = "Terminus:Clear:size=8:antialias=true:hinting=true";
+//static const char font[] = "Terminus 8";
+//static const char dmenufont[] = "Terminus:Clear:size=8:antialias=true:hinting=true";
+static const char font[] = "Inconsolata 9";
+static const char dmenufont[] = "Inconsolata:Clear:size=9:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1D1D1D";
 static const char normbgcolor[]     = "#101010";
 static const char normfgcolor[]     = "#cccccc";
-static const char selbordercolor[]  = "#404750";
+//static const char selbordercolor[]  = "#404750";
+static const char selbordercolor[]  = "#8087A0";
 static const char selbgcolor[]      = "#404750";
 static const char selfgcolor[]      = "#dddddd";
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int snap      = 6;       /* snap pixel */
+static const unsigned int borderpx  = 7;        /* border pixel of windows */
+static const unsigned int snap      = 7;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι" };
+static const char *tags[] = { "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И" };
 
 static const Rule rules[] = {
 	/* class        instance    title    tags    x     y     w     h        floating   monitor */
-	{ NULL,         NULL,       NULL,    0,      12,   31,   0,    0,       True,      -1 },
-	{ "URxvt",      NULL,       NULL,    0,      12,   31,   618,  336,     True,      -1 },
+	{ NULL,         NULL,       NULL,    0,      13,   31,   0,    0,       True,      -1 },
+	{ "URxvt",      NULL,       NULL,    0,      13,   31,   606,  324,     True,      -1 },
 	{ "Conky",      NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
     /* right 2/3s */
-	{ "Dwb",        NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
-	{ "Filezilla",  NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
-	{ "Firefox",    NULL,       NULL,    0,      648,  31,   1252, 1024,    True,      -1 },
+	{ "Dwb",        NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
+	{ "Filezilla",  NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
+	{ "Firefox",    NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
 	{ "Gimp",       NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
 };
 
@@ -87,22 +93,22 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, 12, 0, 0 }}},
-    { MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -12, 0, 0 }}},
-    { MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ 12, 0, 0, 0 }}},
-    { MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -12, 0, 0, 0 }}},
-    { MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, 12 }}},
-    { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -12 }}},
-    { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, 12, 0 }}},
-    { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -12, 0 }}},
+    { MODKEY,                       XK_Down,   moveresize,     {.v = (int []){ 0, VINCREMENT, 0, 0 }}},
+    { MODKEY,                       XK_Up,     moveresize,     {.v = (int []){ 0, -VINCREMENT, 0, 0 }}},
+    { MODKEY,                       XK_Right,  moveresize,     {.v = (int []){ HINCREMENT, 0, 0, 0 }}},
+    { MODKEY,                       XK_Left,   moveresize,     {.v = (int []){ -HINCREMENT, 0, 0, 0 }}},
+    { MODKEY|ShiftMask,             XK_Down,   moveresize,     {.v = (int []){ 0, 0, 0, VINCREMENT }}},
+    { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -VINCREMENT }}},
+    { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, HINCREMENT, 0 }}},
+    { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -HINCREMENT, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 348, 0, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, -348, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 636, 0, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -636, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 637, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -637, 0, 0, 0 }}},
     { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,     {.v = (int []){ 0, 0, 0, 348 }}},
     { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,     {.v = (int []){ 0, 0, 0, -348 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,     {.v = (int []){ 0, 0, 636, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,     {.v = (int []){ 0, 0, -636, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,     {.v = (int []){ 0, 0, 637, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,     {.v = (int []){ 0, 0, -637, 0 }}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

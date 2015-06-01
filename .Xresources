@@ -81,7 +81,8 @@
 #*color15: #edeff2
 
 URxvt.scrollBar:    false
-URxvt.font: xft:Terminus:Crisp:size=8:antialias=true:hinting=true
+#URxvt.font: xft:Terminus:Crisp:size=8:antialias=true:hinting=true
+URxvt.font: xft:Inconsolata:Crisp:size=8:antialias=true:hinting=false
 URxvt.boldFont:
 
 Xft.dpi: 96
