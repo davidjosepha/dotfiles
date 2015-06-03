@@ -4,18 +4,18 @@
 #define VINCREMENT 12 
 
 /* appearance */
-//static const char font[]            = "-*-terminus-medium-r-*-*-10-*-*-*-*-*-*-*";
-//static const char font[] = "Terminus 8";
-//static const char dmenufont[] = "Terminus:Clear:size=8:antialias=true:hinting=true";
 static const char font[] = "Inconsolata 9";
 static const char dmenufont[] = "Inconsolata:Clear:size=9:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1D1D1D";
+//static const char normbordercolor[] = "#1D1D1D";
 static const char normbgcolor[]     = "#101010";
 static const char normfgcolor[]     = "#cccccc";
-//static const char selbordercolor[]  = "#404750";
 static const char selbordercolor[]  = "#8087A0";
-static const char selbgcolor[]      = "#404750";
-static const char selfgcolor[]      = "#dddddd";
+//static const char selbordercolor[]  = "#8087A0";
+static const char selbgcolor[]      = "#e3e4e6";
+static const char selfgcolor[]      = "#404040";
+//static const char selbgcolor[]      = "#687080";
+//static const char selfgcolor[]      = "#dddddd";
 static const unsigned int borderpx  = 7;        /* border pixel of windows */
 static const unsigned int snap      = 7;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -25,20 +25,22 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static const char *tags[] = { "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И" };
 
 static const Rule rules[] = {
-	/* class        instance    title    tags    x     y     w     h        floating   monitor */
-	{ NULL,         NULL,       NULL,    0,      13,   31,   0,    0,       True,      -1 },
-	{ "URxvt",      NULL,       NULL,    0,      13,   31,   606,  324,     True,      -1 },
-	{ "Conky",      NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
-    /* right 2/3s */
-	{ "Dwb",        NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
-	{ "Filezilla",  NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
-	{ "Firefox",    NULL,       NULL,    0,      650,  31,   1243, 1012,    True,      -1 },
-	{ "Gimp",       NULL,       NULL,    0,      0,    0,    0,    0,       True,      -1 },
+   /* class        instance  title  tags  x    y   w     h      float  monitor */
+	{ NULL,        NULL,     NULL,  0,    13,  31, 0,    0,     True,  -1 },
+	{ "Conky",     NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
+    /* minor */
+	{ "URxvt",     NULL,     NULL,  0,    13,  31, 606,  324,   True,  -1 },
+    /* major */
+	{ "Dwb",       NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
+	{ "Filezilla", NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
+	{ "Firefox",   NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
+	{ "Gimp",      NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
+	{ "Steam",     NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster      = 1;    /* number of clients in master area */
+static const float mfact = 0.55; /* factor of master area size [0.05..0.95] */
+static const int nmaster = 1;    /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
@@ -52,10 +54,10 @@ static const Layout layouts[] = {
 #define MODKEY Mod1Mask
 #define WINKEY Mod2Mask
 #define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+	{ MODKEY,                        KEY,    view,          {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask,            KEY,    toggleview,    {.ui = 1 << TAG} }, \
+	{ MODKEY|ShiftMask,              KEY,    tag,           {.ui = 1 << TAG} }, \
+	{ MODKEY|ControlMask|ShiftMask,  KEY,    toggletag,     {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
@@ -83,10 +85,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-  /*{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },*/
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },

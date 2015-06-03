@@ -41,7 +41,7 @@ mpdcron &
 exec ~/scripts/albumart/albumartd.sh &
 
 # window dropshadow
-compton -c -b -e .2
+compton -c -b -e .4
 
 # this helps with full screen games
 wmname LG3D
