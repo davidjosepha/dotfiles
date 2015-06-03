@@ -7,35 +7,32 @@
 static const char font[] = "Inconsolata 9";
 static const char dmenufont[] = "Inconsolata:Clear:size=9:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1D1D1D";
-//static const char normbordercolor[] = "#1D1D1D";
-static const char normbgcolor[]     = "#101010";
+static const char normbgcolor[]     = "#1D1D1D";
 static const char normfgcolor[]     = "#cccccc";
-static const char selbordercolor[]  = "#8087A0";
-//static const char selbordercolor[]  = "#8087A0";
+static const char selbordercolor[]  = "#e3e4e6";
 static const char selbgcolor[]      = "#e3e4e6";
 static const char selfgcolor[]      = "#404040";
-//static const char selbgcolor[]      = "#687080";
-//static const char selfgcolor[]      = "#dddddd";
 static const unsigned int borderpx  = 7;        /* border pixel of windows */
-static const unsigned int snap      = 7;       /* snap pixel */
+static const unsigned int snap      = 7;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
+static const int barpadding         = 10;
 
 /* tagging */
 static const char *tags[] = { "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "И" };
 
 static const Rule rules[] = {
    /* class        instance  title  tags  x    y   w     h      float  monitor */
-	{ NULL,        NULL,     NULL,  0,    13,  31, 0,    0,     True,  -1 },
+	{ NULL,        NULL,     NULL,  0,    13,  38, 0,    0,     True,  -1 },
 	{ "Conky",     NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
     /* minor */
-	{ "URxvt",     NULL,     NULL,  0,    13,  31, 606,  324,   True,  -1 },
+	{ "URxvt",     NULL,     NULL,  0,    13,  38, 606,  324,   True,  -1 },
     /* major */
-	{ "Dwb",       NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
-	{ "Filezilla", NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
-	{ "Firefox",   NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
+	{ "Dwb",       NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
+	{ "Filezilla", NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
+	{ "Firefox",   NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
 	{ "Gimp",      NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
-	{ "Steam",     NULL,     NULL,  0,    650, 31, 1243, 1012,  True,  -1 },
+	{ "Steam",     NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
 };
 
 /* layout(s) */
@@ -63,7 +60,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-h", "24", NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *xkbdvorakcmd[]  = { "setxkbmap", "dvorak", NULL };
 static const char *xkbrucmd[]  = { "setxkbmap", "rua", NULL };

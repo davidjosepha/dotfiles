@@ -811,13 +811,14 @@ drawbars(void) {
 void
 drawsquare(Bool filled, Bool empty, Bool invert, unsigned long col[ColLast]) {
 	int x;
+	int y = dc.y + (bh / 4) - 2;
 
 	XSetForeground(dpy, dc.gc, col[invert ? ColBG : ColFG]);
 	x = (dc.font.ascent + dc.font.descent + 2) / 4;
 	if(filled)
-		XFillRectangle(dpy, dc.drawable, dc.gc, dc.x+1, dc.y+1, x+1, x+1);
+		XFillRectangle(dpy, dc.drawable, dc.gc, dc.x+1, y, x+1, x+1);
 	else if(empty)
-		XDrawRectangle(dpy, dc.drawable, dc.gc, dc.x+1, dc.y+1, x, x);
+		XDrawRectangle(dpy, dc.drawable, dc.gc, dc.x+1, y, x, x);
 }
 
 void
@@ -831,7 +832,7 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 		return;
 	olen = strlen(text);
 	h = dc.font.ascent + dc.font.descent;
-	y = dc.y;
+	y = dc.y + (bh / 4) - 1;
 	x = dc.x + (h / 2);
 	/* shorten text if necessary */
 	for(len = MIN(olen, sizeof buf); len && textnw(text, len) > dc.w - h; len--);
@@ -1614,7 +1615,7 @@ setup(void) {
 	initfont(font);
 	sw = DisplayWidth(dpy, screen);
 	sh = DisplayHeight(dpy, screen);
-	bh = dc.h = dc.font.height + 2;
+	bh = dc.h = dc.font.height + barpadding;
 	updategeom();
 	/* init atoms */
 	wmatom[WMProtocols] = XInternAtom(dpy, "WM_PROTOCOLS", False);
