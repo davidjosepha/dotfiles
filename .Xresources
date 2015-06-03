@@ -2,30 +2,30 @@
 *foreground: #d0d0d0
 *cursorColor: #93a1a1
 
-# *color0:			        #3D3D3D
+! *color0:			        #3D3D3D
 
-# *color1:	                #7086A8
-# *color2:	                #3EA290
-# *color3:	                #7498bd
-# *color4:	                #42628A
-# *color5:	                #57657b
-# *color6:	                #8292B2
+! *color1:	                #7086A8
+! *color2:	                #3EA290
+! *color3:	                #7498bd
+! *color4:	                #42628A
+! *color5:	                #57657b
+! *color6:	                #8292B2
 
-# *color7:	                #C8CACC
+! *color7:	                #C8CACC
 
-# *color8:			        #4D4D4D	
+! *color8:			        #4D4D4D	
 
-# *color9:	                #BCD8FF 
-# *color10:	                #8CA8A3
-# *color11:	                #94b8dd
-# *color12:	                #83AFE1
-# *color13:	                #96a2b5
-# *color14:	                #95A7CC
+! *color9:	                #BCD8FF 
+! *color10:	                #8CA8A3
+! *color11:	                #94b8dd
+! *color12:	                #83AFE1
+! *color13:	                #96a2b5
+! *color14:	                #95A7CC
 
-# *color15:	                #EDEFF2
+! *color15:	                #EDEFF2
 
-#515f6e
-#465a6e
+!515f6e
+!465a6e
 
 ! black
 *color0:  #3D3D3D
@@ -61,27 +61,26 @@
 ! white
 *color15: #EDEFF2
 
-## Dark
-#*color0: #3f3f4c
-#*color1: #ac6a76
-#*color2: #7b8c58
-#*color3: #bc945a
-#*color4: #58698c
-#*color5: #7b5e8d
-#*color6: #82a1b2
-#*color7: #cccaca
-## Light
-#*color8: #525263
-#*color9: #c47987
-#*color10: #90a366
-#*color11: #d4a765
-#*color12: #7086b2
-#*color13: #9572ab
-#*color14: #95b9cc
-#*color15: #edeff2
+!# Dark
+!*color0: #3f3f4c
+!*color1: #ac6a76
+!*color2: #7b8c58
+!*color3: #bc945a
+!*color4: #58698c
+!*color5: #7b5e8d
+!*color6: #82a1b2
+!*color7: #cccaca
+!# Light
+!*color8: #525263
+!*color9: #c47987
+!*color10: #90a366
+!*color11: #d4a765
+!*color12: #7086b2
+!*color13: #9572ab
+!*color14: #95b9cc
+!*color15: #edeff2
 
 URxvt.scrollBar:    false
-#URxvt.font: xft:Terminus:Crisp:size=8:antialias=true:hinting=true
 URxvt.font: xft:Inconsolata:Crisp:size=8:antialias=true:hinting=false
 URxvt.boldFont:
 
