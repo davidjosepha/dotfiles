@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 #define HINCREMENT 7
-#define VINCREMENT 12 
+#define VINCREMENT 13 
 
 /* appearance */
-static const char font[] = "Inconsolata 9";
-static const char dmenufont[] = "Inconsolata:Clear:size=9:antialias=true:hinting=true";
+static const char font[] = "Inconsolata LGC Bold 8";
+static const char dmenufont[] = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1D1D1D";
 static const char normbgcolor[]     = "#1D1D1D";
 static const char normfgcolor[]     = "#cccccc";
@@ -23,16 +23,16 @@ static const char *tags[] = { "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "�
 
 static const Rule rules[] = {
    /* class        instance  title  tags  x    y   w     h      float  monitor */
-	{ NULL,        NULL,     NULL,  0,    13,  38, 0,    0,     True,  -1 },
+	{ NULL,        NULL,     NULL,  0,    20,  51, 0,    0,     True,  -1 },
 	{ "Conky",     NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
     /* minor */
-	{ "URxvt",     NULL,     NULL,  0,    13,  38, 606,  324,   True,  -1 },
+	{ "URxvt",     NULL,     NULL,  0,    20,  51, 599,  312,   True,  -1 },
     /* major */
-	{ "Dwb",       NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
-	{ "Filezilla", NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
-	{ "Firefox",   NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
+	{ "Dwb",       NULL,     NULL,  0,    650, 51, 1229, 979,   True,  -1 },
+	{ "Filezilla", NULL,     NULL,  0,    650, 51, 1229, 979,   True,  -1 },
+	{ "Firefox",   NULL,     NULL,  0,    650, 51, 1229, 979,   True,  -1 },
 	{ "Gimp",      NULL,     NULL,  0,    0,   0,  0,    0,     True,  -1 },
-	{ "Steam",     NULL,     NULL,  0,    650, 38, 1243, 1012,  True,  -1 },
+	{ "Steam",     NULL,     NULL,  0,    650, 51, 1229, 979,   True,  -1 },
 };
 
 /* layout(s) */
@@ -60,7 +60,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-h", "24", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, "-h", "25", NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *xkbdvorakcmd[]  = { "setxkbmap", "dvorak", NULL };
 static const char *xkbrucmd[]  = { "setxkbmap", "rua", NULL };
@@ -96,14 +96,14 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_Up,     moveresize,     {.v = (int []){ 0, 0, 0, -VINCREMENT }}},
     { MODKEY|ShiftMask,             XK_Right,  moveresize,     {.v = (int []){ 0, 0, HINCREMENT, 0 }}},
     { MODKEY|ShiftMask,             XK_Left,   moveresize,     {.v = (int []){ 0, 0, -HINCREMENT, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 348, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, -348, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 637, 0, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -637, 0, 0, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,     {.v = (int []){ 0, 0, 0, 348 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,     {.v = (int []){ 0, 0, 0, -348 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,     {.v = (int []){ 0, 0, 637, 0 }}},
-    { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,     {.v = (int []){ 0, 0, -637, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,     {.v = (int []){ 0, 338, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,     {.v = (int []){ 0, -338, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,     {.v = (int []){ 630, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,     {.v = (int []){ -630, 0, 0, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,     {.v = (int []){ 0, 0, 0, 338 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,     {.v = (int []){ 0, 0, 0, -338 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,     {.v = (int []){ 0, 0, 630, 0 }}},
+    { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,     {.v = (int []){ 0, 0, -630, 0 }}},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
