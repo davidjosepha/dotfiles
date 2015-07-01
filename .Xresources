@@ -62,7 +62,8 @@
 *color15: #EDEFF2
 
 URxvt.scrollBar:    false
-URxvt.font: xft:Inconsolata:Crisp:size=8:antialias=true:hinting=false,xft:Anonymous Pro:size=9:antialias=true:hinting=false
+URxvt.font: xft:Inconsolata LGC:style=Bold:pixelsize=9:antialias=true:hinting=true
+!URxvt.font: xft:Inconsolata:Crisp:size=8:antialias=true:hinting=false,xft:Anonymous Pro:size=9:antialias=true:hinting=false
 URxvt.boldFont:
 
 Xft.dpi: 96
