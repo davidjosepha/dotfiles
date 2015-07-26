@@ -178,7 +178,8 @@ visualizer_sync_interval = 30
 ##
 #
 #song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
-song_list_format = "{$2%a$9} $1|$9 {$5%t$9} $R {$6%40b$9} $1|$9 {$2%l$9}"
+#song_list_format = "{$2%a$9} $1|$9 {$5%t$9} $R {$6%40b$9} $1|$9 {$2%l$9}"
+song_list_format = "{$5%a$9} $1|$9 {$1%t$9} $R {$2%40b$9} $1|$9 {$6%l$9}"
 #
 #song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 song_status_format = $8%a$9{ - $8"%t"$9}
@@ -489,7 +490,7 @@ header_window_color = black
 #
 #state_flags_color = default
 #
-main_window_color = red
+main_window_color = black
 #
 #color1 = white
 #
