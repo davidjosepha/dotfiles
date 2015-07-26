@@ -47,6 +47,8 @@ static const Rule rules[] = {
   { "Firefox",   NULL,     NULL,  0,    L2,  T1, W2, 979,  True,  -1 },
   { "Gimp",      NULL,     NULL,  0,    0,   0,  0,    0,  True,  -1 },
   { "Steam",     NULL,     NULL,  0,    L2,  T1, W2, 979,  True,  -1 },
+  /* popups */
+  { "Firefox",   NULL,     "Library",  0,    0,   0,  0,    0,  True,  -1 },
 };
 
 /* layout(s) */
