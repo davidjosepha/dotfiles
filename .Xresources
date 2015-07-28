@@ -55,8 +55,9 @@
 !*color15: #EDEFF2
 *color15: #fdf9f6
 
-URxvt.scrollBar:    false
+URxvt.scrollBar: false
 URxvt.font: xft:Inconsolata LGC:style=Bold:pixelsize=9:antialias=true:hinting=true
 URxvt.boldFont:
+URxvt.letterSpace: -1
 
 Xft.dpi: 96
