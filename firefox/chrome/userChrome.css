@@ -1,0 +1,12 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul); /* only needed once */
+
+/* UI fonts */
+* {
+  font-size: 10pt !important;
+  font-family: sans-serif !important;
+}
+
+.tabbrowser-tab[remote] {
+  text-decoration: none !important;
+}
+
