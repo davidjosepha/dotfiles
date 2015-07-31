@@ -20,11 +20,11 @@
 /* appearance */
 static const char font[] = "Inconsolata LGC Bold 8";
 static const char dmenufont[] = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
-static const char normbordercolor[] = "#1D1D1D";
-static const char normbgcolor[]     = "#1D1D1D";
+static const char normbordercolor[] = "#1d1d1d";
+static const char normbgcolor[]     = "#1d1d1d";
 static const char normfgcolor[]     = "#cccccc";
 static const char selbordercolor[]  = "#e3e4e6";
-static const char selbgcolor[]      = "#e3e4e6";
+static const char selbgcolor[]      = "#d2e2f5";
 static const char selfgcolor[]      = "#404040";
 static const unsigned int borderpx  = 6;        /* border pixel of windows */
 static const unsigned int snap      = 6;        /* snap pixel */
@@ -119,12 +119,12 @@ static Key keys[] = {
   { MODKEY|ShiftMask,             XK_Up,     moveresize,    {.v = (int []){ 0, 0, 0, -VINC }}},
   { MODKEY|ShiftMask,             XK_Right,  moveresize,    {.v = (int []){ 0, 0, HINC, 0 }}},
   { MODKEY|ShiftMask,             XK_Left,   moveresize,    {.v = (int []){ 0, 0, -HINC, 0 }}},
-  { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,    {.v = (int []){ 0, 338, 0, 0 }}},
-  { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,    {.v = (int []){ 0, -338, 0, 0 }}},
+  { MODKEY|ShiftMask|ControlMask, XK_Down,   moveresize,    {.v = (int []){ 0, VJMP, 0, 0 }}},
+  { MODKEY|ShiftMask|ControlMask, XK_Up,     moveresize,    {.v = (int []){ 0, -VJMP, 0, 0 }}},
   { MODKEY|ShiftMask|ControlMask, XK_Right,  moveresize,    {.v = (int []){ HJMP, 0, 0, 0 }}},
   { MODKEY|ShiftMask|ControlMask, XK_Left,   moveresize,    {.v = (int []){ -HJMP, 0, 0, 0 }}},
-  { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,    {.v = (int []){ 0, 0, 0, 338 }}},
-  { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,    {.v = (int []){ 0, 0, 0, -338 }}},
+  { MODKEY|ShiftMask|ControlMask, XK_j,      moveresize,    {.v = (int []){ 0, 0, 0, VJMP }}},
+  { MODKEY|ShiftMask|ControlMask, XK_k,      moveresize,    {.v = (int []){ 0, 0, 0, -VJMP }}},
   { MODKEY|ShiftMask|ControlMask, XK_l,      moveresize,    {.v = (int []){ 0, 0, HJMP, 0 }}},
   { MODKEY|ShiftMask|ControlMask, XK_h,      moveresize,    {.v = (int []){ 0, 0, -HJMP, 0 }}},
   TAGKEYS(                        XK_1,                     0)
