@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
-#define HINC  6
-#define HJMP  (104+2)*HINC
+#define HINC  5
+#define HJMP  (125+2)*HINC
 #define VINC  13 
 #define VJMP  26*VINC
-#define W1    604
+#define W1    614
 #define W2    W1+HJMP
 #define W3    W2+HJMP
-#define H1    312
+#define H1    325
 #define H2    H1+VJMP
 #define H3    H2+VJMP
 #define L1    18
@@ -26,8 +26,8 @@ static const char normfgcolor[]     = "#cccccc";
 static const char selbordercolor[]  = "#e3e4e6";
 static const char selbgcolor[]      = "#d2e2f5";
 static const char selfgcolor[]      = "#404040";
-static const unsigned int borderpx  = 6;        /* border pixel of windows */
-static const unsigned int snap      = 6;        /* snap pixel */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int snap      = 5;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 static const int barpadding         = 10;
@@ -42,11 +42,11 @@ static const Rule rules[] = {
   /* minor */
   { "URxvt",      NULL,     NULL,       0,    L1,  T1,  W1,   H1,  True,  -1 },
   /* major */
-  { "Dwb",        NULL,     NULL,       0,    L2,  T1,  W2,  979,  True,  -1 },
-  { "Filezilla",  NULL,     NULL,       0,    L2,  T1,  W2,  979,  True,  -1 },
-  { "Firefox",    NULL,     NULL,       0,    L2,  T1,  W2,  979,  True,  -1 },
+  { "Dwb",        NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
+  { "Filezilla",  NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
+  { "Firefox",    NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   { "Gimp",       NULL,     NULL,       0,    0,   0,   0,     0,  True,  -1 },
-  { "Steam",      NULL,     NULL,       0,    L2,  T1,  W2,  979,  True,  -1 },
+  { "Steam",      NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   /* popups */
   { "Firefox",    NULL,     "Library",  0,    0,   0,   0,     0,  True,  -1 },
 };
