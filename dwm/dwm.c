@@ -766,9 +766,17 @@ drawbar(Monitor *m) {
 	for(i = 0; i < LENGTH(tags); i++) {
 		dc.w = TEXTW(tags[i]);
 		col = m->tagset[m->seltags] & 1 << i ? dc.sel : dc.norm;
-		drawtext(tags[i], col, urg & 1 << i);
-		drawsquare(m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
+        // draw everything normal first
+		drawtext(tags[i], dc.norm, urg & 1 << i);
+		//drawtext(tags[i], col, urg & 1 << i);
+        // then draw the flat line)))
+        if (col == dc.sel) {
+            drawtext(tags[i], dc.sel, urg & 1 << i);
+        }
+		/*
+        drawsquare(m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
 		           occ & 1 << i, urg & 1 << i, col);
+        */
 		dc.x += dc.w;
 	}
 	dc.w = blw = TEXTW(m->ltsymbol);
@@ -827,22 +835,27 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 	int i, x, y, h, len, olen;
 
 	XSetForeground(dpy, dc.gc, col[invert ? ColFG : ColBG]);
-	XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, dc.h);
-	if(!text)
-		return;
-	olen = strlen(text);
-	h = dc.font.ascent + dc.font.descent;
-	y = dc.y + (bh / 4) - 1;
-	x = dc.x + (h / 2);
-	/* shorten text if necessary */
-	for(len = MIN(olen, sizeof buf); len && textnw(text, len) > dc.w - h; len--);
-	if(!len)
-		return;
-	memcpy(buf, text, len);
-	if(len < olen)
-		for(i = len; i && i > len - 3; buf[--i] = '.');
-	pango_layout_set_text(dc.plo, text, len);
-	pango_xft_render_layout(dc.xftdrawable, (col==dc.norm?dc.xftnorm:dc.xftsel)+(invert?ColBG:ColFG), dc.plo, x * PANGO_SCALE, y * PANGO_SCALE);
+    if (col == dc.sel) {
+	    XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, 3);
+    } else {
+	    XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, dc.h);
+
+	    if(!text)
+	    	return;
+	    olen = strlen(text);
+	    h = dc.font.ascent + dc.font.descent;
+	    y = dc.y + (bh / 4) - 1;
+	    x = dc.x + (h / 2);
+	    /* shorten text if necessary */
+	    for(len = MIN(olen, sizeof buf); len && textnw(text, len) > dc.w - h; len--);
+	    if(!len)
+	    	return;
+	    memcpy(buf, text, len);
+	    if(len < olen)
+	    	for(i = len; i && i > len - 3; buf[--i] = '.');
+	    pango_layout_set_text(dc.plo, text, len);
+	    pango_xft_render_layout(dc.xftdrawable, (col==dc.norm?dc.xftnorm:dc.xftsel)+(invert?ColBG:ColFG), dc.plo, x * PANGO_SCALE, y * PANGO_SCALE);
+    }
 }
 
 void
