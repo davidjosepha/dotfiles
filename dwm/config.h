@@ -10,7 +10,7 @@
 #define H1    325
 #define H2    H1+VJMP
 #define H3    H2+VJMP
-#define L1    18
+#define L1    13
 #define L2    L1+HJMP
 #define L3    L2+HJMP
 #define T1    51
