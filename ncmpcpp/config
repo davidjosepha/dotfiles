@@ -32,7 +32,8 @@ mpd_port = 6600
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /var/lib/mpd/music
+#mpd_music_dir = /var/lib/mpd/music
+mpd_music_dir = /media/audio
 #
 mpd_crossfade_time = 5
 #
@@ -219,10 +220,12 @@ tag_editor_album_format = %b
 ##
 #
 # alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
-alternative_header_first_line_format = "{$2%a$9} $1|$9 {$5%t$9}"
+# alternative_header_first_line_format = "{$2%a$9} $1|$9 {$5%t$9}"
+alternative_header_first_line_format = "{$5%a$9} $1|$9 {%t}"
 #
 # alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
-alternative_header_second_line_format = "{$6%b$9} $1|$9 {$2(%y)$9}"
+# alternative_header_second_line_format = "{$6%b$9} $1|$9 {$2(%y)$9}"
+alternative_header_second_line_format = "{$2%b$9} $1|$9 {$6(%y)$9}"
 #
 ##
 ## Note: below variables also support text attributes listed above.
