@@ -23,9 +23,11 @@ static const char dmenufont[] = "Inconsolata LGC:style=Bold:pixelsize=10:antiali
 static const char normbordercolor[] = "#1d1d1d";
 static const char normbgcolor[]     = "#1d1d1d";
 static const char normfgcolor[]     = "#cccccc";
+static const char normbarcolor[]    = "#627285";
 static const char selbordercolor[]  = "#e3e4e6";
-static const char selbgcolor[]      = "#d2e2f5";
-static const char selfgcolor[]      = "#404040";
+static const char selbgcolor[]      = "#1d1d1d";
+static const char selfgcolor[]      = "#cccccc";
+static const char selbarcolor[]     = "#d2e2f5";
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 5;        /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
@@ -37,7 +39,7 @@ static const char *tags[] = { "А", "Б", "В", "Г", "Д", "Е", "Ж", "З", "�
 
 static const Rule rules[] = {
  /* class         instance  title       tags  x    y    w      h   float  monitor */
-  { NULL,         NULL,     NULL,       0,    L1,  T1,  0,     0,  True,  -1 },
+  { NULL,         NULL,     NULL,       0,    0,   0,   0,     0,  True,  -1 },
   { "Conky",      NULL,     NULL,       0,    0,   0,   0,     0,  True,  -1 },
   /* minor */
   { "URxvt",      NULL,     NULL,       0,    L1,  T1,  W1,   H1,  True,  -1 },
@@ -46,6 +48,7 @@ static const Rule rules[] = {
   { "Filezilla",  NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   { "Firefox",    NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   { "Gimp",       NULL,     NULL,       0,    0,   0,   0,     0,  True,  -1 },
+  { "Spotify",    NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   { "Steam",      NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
   /* popups */
   { "Firefox",    NULL,     "Library",  0,    0,   0,   0,     0,  True,  -1 },

@@ -65,7 +65,7 @@
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast };        /* cursor */
-enum { ColBorder, ColFG, ColBG, ColLast };              /* color */
+enum { ColBorder, ColFG, ColBG, ColBar, ColLast };              /* color */
 enum { NetSupported, NetWMName, NetWMState,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetLast };     /* EWMH atoms */
@@ -767,16 +767,16 @@ drawbar(Monitor *m) {
 		dc.w = TEXTW(tags[i]);
 		col = m->tagset[m->seltags] & 1 << i ? dc.sel : dc.norm;
         // draw everything normal first
-		drawtext(tags[i], dc.norm, urg & 1 << i);
-		//drawtext(tags[i], col, urg & 1 << i);
+		//drawtext(tags[i], dc.norm, urg & 1 << i);
+		drawtext(tags[i], col, urg & 1 << i);
         // then draw the flat line)))
+        /*
         if (col == dc.sel) {
             drawtext(tags[i], dc.sel, urg & 1 << i);
         }
-		/*
-        drawsquare(m == selmon && selmon->sel && selmon->sel->tags & 1 << i,
-		           occ & 1 << i, urg & 1 << i, col);
         */
+        drawsquare((m == selmon && selmon->sel && selmon->sel->tags & 1 << i) || col == dc.sel,
+		           occ & 1 << i, urg & 1 << i, col);
 		dc.x += dc.w;
 	}
 	dc.w = blw = TEXTW(m->ltsymbol);
@@ -799,7 +799,6 @@ drawbar(Monitor *m) {
 		if(m->sel) {
 			col = m == selmon ? dc.norm : dc.norm;
 			drawtext(m->sel->name, col, False);
-			drawsquare(m->sel->isfixed, m->sel->isfloating, False, col);
 		}
 		else
 			drawtext(NULL, dc.norm, False);
@@ -818,15 +817,9 @@ drawbars(void) {
 
 void
 drawsquare(Bool filled, Bool empty, Bool invert, unsigned long col[ColLast]) {
-	int x;
-	int y = dc.y + (bh / 4) - 2;
-
-	XSetForeground(dpy, dc.gc, col[invert ? ColBG : ColFG]);
-	x = (dc.font.ascent + dc.font.descent + 2) / 4;
-	if(filled)
-		XFillRectangle(dpy, dc.drawable, dc.gc, dc.x+1, y, x+1, x+1);
-	else if(empty)
-		XDrawRectangle(dpy, dc.drawable, dc.gc, dc.x+1, y, x, x);
+	XSetForeground(dpy, dc.gc, col[invert ? ColBar : ColBar]);
+	if(filled || empty)
+		XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, 0, dc.w, 3);
 }
 
 void
@@ -835,27 +828,23 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 	int i, x, y, h, len, olen;
 
 	XSetForeground(dpy, dc.gc, col[invert ? ColFG : ColBG]);
-    if (col == dc.sel) {
-	    XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, 3);
-    } else {
-	    XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, dc.h);
+	XFillRectangle(dpy, dc.drawable, dc.gc, dc.x, dc.y, dc.w, dc.h);
 
-	    if(!text)
-	    	return;
-	    olen = strlen(text);
-	    h = dc.font.ascent + dc.font.descent;
-	    y = dc.y + (bh / 4) - 1;
-	    x = dc.x + (h / 2);
-	    /* shorten text if necessary */
-	    for(len = MIN(olen, sizeof buf); len && textnw(text, len) > dc.w - h; len--);
-	    if(!len)
-	    	return;
-	    memcpy(buf, text, len);
-	    if(len < olen)
-	    	for(i = len; i && i > len - 3; buf[--i] = '.');
-	    pango_layout_set_text(dc.plo, text, len);
-	    pango_xft_render_layout(dc.xftdrawable, (col==dc.norm?dc.xftnorm:dc.xftsel)+(invert?ColBG:ColFG), dc.plo, x * PANGO_SCALE, y * PANGO_SCALE);
-    }
+	if(!text)
+		return;
+	olen = strlen(text);
+	h = dc.font.ascent + dc.font.descent;
+	y = dc.y + (bh / 4) - 1;
+	x = dc.x + (h / 2);
+	/* shorten text if necessary */
+	for(len = MIN(olen, sizeof buf); len && textnw(text, len) > dc.w - h; len--);
+	if(!len)
+		return;
+	memcpy(buf, text, len);
+	if(len < olen)
+		for(i = len; i && i > len - 3; buf[--i] = '.');
+	pango_layout_set_text(dc.plo, text, len);
+	pango_xft_render_layout(dc.xftdrawable, (col==dc.norm?dc.xftnorm:dc.xftsel)+(invert?ColBG:ColFG), dc.plo, x * PANGO_SCALE, y * PANGO_SCALE);
 }
 
 void
@@ -1651,9 +1640,11 @@ setup(void) {
         dc.norm[ColBorder] = getcolor(normbordercolor, dc.xftnorm+ColBorder);
         dc.norm[ColBG] = getcolor(normbgcolor, dc.xftnorm+ColBG);
         dc.norm[ColFG] = getcolor(normfgcolor, dc.xftnorm+ColFG);
+        dc.norm[ColBar] = getcolor(normbarcolor, dc.xftnorm+ColBar);
         dc.sel[ColBorder] = getcolor(selbordercolor, dc.xftsel+ColBorder);
         dc.sel[ColBG] = getcolor(selbgcolor, dc.xftsel+ColBG);
         dc.sel[ColFG] = getcolor(selfgcolor, dc.xftsel+ColFG);
+        dc.sel[ColBar] = getcolor(selbarcolor, dc.xftsel+ColBar);
 
 	dc.drawable = XCreatePixmap(dpy, root, DisplayWidth(dpy, screen), bh, DefaultDepth(dpy, screen));
 	dc.gc = XCreateGC(dpy, root, 0, NULL);
