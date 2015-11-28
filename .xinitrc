@@ -2,7 +2,6 @@
 #
 # ~/.xinitrc
 #
-# Executed by startx (run your window manager from here)
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
@@ -13,35 +12,30 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# clock in menubar
+# clock and battery in menubar
 while true; do
-  xsetroot -name "$( date +"%Y-%m-%d %I:%M %p" )"
-  sleep 1s
+    #battery = acpi -b | awk 'sub(/,/,"") { print $4 }'
+    battery="$(acpi -b | awk 'sub(/,/,"") {print "Battery", $4}')"
+    xsetroot -name "${battery%?} | $( date +"%Y-%m-%d %I:%M %p" )"
+    #xsetroot -name "$(acpi -b | awk 'sub(/,/,"") {print "Battery", $4}')%? | $( date +"%Y-%m-%d %I:%M %p" )"
+  sleep 15s
 done &
 
 # turn off screen blanking
 xset dpms 0 0 0
 xset -dpms s off
 
-# MPD daemon start (if no other user instance exists)
-#[ ! -s ~/.mpd/pid ] && mpd
-#[[ -z $(pgrep -xU $UID mpdas) ]] && mpdas &
+# MPD scrobbling daemon
 mpdcron &
 
-# audio mixer
-# xterm -name alsamixer -e alsamixer &
-
-# keybinder (audio keys)
-#xterm -name xbindkeys -e xbindkeys &
+# laptop keys
+xbindkeys &
 
 # set wallpaper
 ~/.fehbg
 
-# start album art daemon
-exec ~/scripts/albumart/albumartd.sh &
-
 # window dropshadow
-compton -b -e .3
+compton -b -e .3 --vsync opengl
 
 # this helps with full screen games
 wmname LG3D
@@ -51,7 +45,3 @@ wmname LG3D
 
 # start dwm
 exec /usr/bin/dwm
-
-# start openbox
-#tint2 &
-#exec openbox-session
