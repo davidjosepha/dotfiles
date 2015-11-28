@@ -177,17 +177,11 @@ visualizer_sync_interval = 30
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
-#song_list_format = "{$2%a$9} $1|$9 {$5%t$9} $R {$6%40b$9} $1|$9 {$2%l$9}"
 song_list_format = "{$5%a$9} $1|$9 {$1%t$9} $R {$2%40b$9} $1|$9 {$6%l$9}"
 #
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 song_status_format = $8%a$9{ - $8"%t"$9}
 #
 song_library_format = %t
-#
-#tag_editor_album_format = {(%y) }%b
-tag_editor_album_format = %b
 #
 ##
 ## Note: Below variables are used for sorting songs in browser.
@@ -218,12 +212,8 @@ tag_editor_album_format = %b
 ## with reversed colors.
 ##
 #
-# alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
-# alternative_header_first_line_format = "{$2%a$9} $1|$9 {$5%t$9}"
 alternative_header_first_line_format = "{$5%a$9} $1|$9 {%t}"
 #
-# alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
-# alternative_header_second_line_format = "{$6%b$9} $1|$9 {$2(%y)$9}"
 alternative_header_second_line_format = "{$2%b$9} $1|$9 {$6(%y)$9}"
 #
 ##
@@ -282,7 +272,6 @@ alternative_header_second_line_format = "{$2%b$9} $1|$9 {$6(%y)$9}"
 ##   not available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 song_columns_list_format = (20)[red]{a} (30)[magenta]{b} (44)[blue]{t} (7f)[red]{l}
 #
 ##### various settings #####
@@ -421,15 +410,15 @@ startup_screen = media_library
 #
 #jump_to_now_playing_song_at_start = yes
 #
-ask_before_clearing_playlists = no
+ask_before_clearing_playlists = yes
 #
 #clock_display_seconds = no
 #
-#display_volume_level = yes
+display_volume_level = yes
 #
 display_bitrate = yes
 #
-#display_remaining_time = no
+display_remaining_time = no
 #
 ## Available values: none, basic, extended.
 ##
@@ -450,7 +439,7 @@ ignore_leading_the = yes
 #
 #empty_tag_marker = <empty>
 #
-#tags_separator = " | "
+tags_separator = ", "
 #
 #tag_editor_extended_numeration = no
 #
