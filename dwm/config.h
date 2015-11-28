@@ -83,8 +83,8 @@ static const char *dmenucmd[] = { "dmenu_run",
                                   "-fn", dmenufont,
                                   "-nb", normbgcolor,
                                   "-nf", normfgcolor,
-                                  "-sb", selbgcolor,
-                                  "-sf", selfgcolor,
+                                  "-sb", "#d2e2f5", //  FIX
+                                  "-sf", "#404040", // THIS
                                   "-h", "25",
                                   NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
