@@ -4,11 +4,11 @@
 #define HJMP  (125+2)*HINC
 #define VINC  13 
 #define VJMP  26*VINC
-#define W1    614
-#define W2    W1+HJMP
+#define W1    619
+#define W2    W1+HJMP - 4
 #define W3    W2+HJMP
 #define H1    325
-#define H2    H1+VJMP
+#define H2    H1+VJMP - 6
 #define H3    H2+VJMP
 #define L1    13
 #define L2    L1+HJMP
@@ -18,8 +18,8 @@
 #define T3    T2+VJMP
 
 /* appearance */
-static const char font[] = "Inconsolata LGC Bold 8";
-static const char dmenufont[] = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
+static const char font[]            = "Inconsolata LGC Bold 8";
+static const char dmenufont[]       = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1d1d1d";
 static const char normbgcolor[]     = "#1d1d1d";
 static const char normfgcolor[]     = "#cccccc";
@@ -44,12 +44,12 @@ static const Rule rules[] = {
   /* minor */
   { "URxvt",      NULL,     NULL,       0,    L1,  T1,  W1,   H1,  True,  -1 },
   /* major */
-  { "Dwb",        NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
-  { "Filezilla",  NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
-  { "Firefox",    NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
+  { "Dwb",        NULL,     NULL,       0,    L2,  T1,  W2,   H3,  True,  -1 },
+  { "Filezilla",  NULL,     NULL,       0,    L2,  T1,  W2,   H3,  True,  -1 },
+  { "Firefox",    NULL,     NULL,       0,    L2,  T1,  W2,   H3,  True,  -1 },
   { "Gimp",       NULL,     NULL,       0,    0,   0,   0,     0,  True,  -1 },
-  { "Spotify",    NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
-  { "Steam",      NULL,     NULL,       0,    L2,  T1,  W2,  992,  True,  -1 },
+  { "Spotify",    NULL,     NULL,       0,    L2,  T1,  W2,   H3,  True,  -1 },
+  { "Steam",      NULL,     NULL,       0,    L2,  T1,  W2,   H3,  True,  -1 },
   /* popups */
   { "Firefox",    NULL,     "Library",  0,    0,   0,   0,     0,  True,  -1 },
 };
