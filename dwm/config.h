@@ -18,8 +18,10 @@
 #define T3    T2+VJMP
 
 /* appearance */
-static const char font[]            = "Inconsolata LGC Bold 8";
-static const char dmenufont[]       = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
+//static const char font[]            = "Inconsolata LGC Bold 8";
+static const char font[]            = "Helvetica Neue Bold 8";
+//static const char dmenufont[]       = "Inconsolata LGC:style=Bold:pixelsize=10:antialias=true:hinting=true";
+static const char dmenufont[]       = "Helvetica Neue:style=Bold:pixelsize=10:antialias=true:hinting=true";
 static const char normbordercolor[] = "#1d1d1d";
 static const char normbgcolor[]     = "#1d1d1d";
 static const char normfgcolor[]     = "#cccccc";
@@ -61,9 +63,7 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
   /* symbol     arrange function */
-  { " ",      NULL },    /* no layout function means floating behavior */
-  /*{ "[]=",      tile },*/    /* first entry is default */
-  /*{ "[M]",      monocle },*/
+  { " ",        NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -85,7 +85,7 @@ static const char *dmenucmd[] = { "dmenu_run",
                                   "-nf", normfgcolor,
                                   "-sb", "#d2e2f5", //  FIX
                                   "-sf", "#404040", // THIS
-                                  "-h", "25",
+                                  "-h", "24",
                                   NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *xkbdvorakcmd[]  = { "setxkbmap", "dvorak", NULL };

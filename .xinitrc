@@ -12,13 +12,15 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# clock and battery in menubar
+# status bar
 while true; do
-    #battery = acpi -b | awk 'sub(/,/,"") { print $4 }'
-    battery="$(acpi -b | awk 'sub(/,/,"") {print "Battery", $4}')"
-    xsetroot -name "${battery%?} | $( date +"%Y-%m-%d %I:%M %p" )"
-    #xsetroot -name "$(acpi -b | awk 'sub(/,/,"") {print "Battery", $4}')%? | $( date +"%Y-%m-%d %I:%M %p" )"
-  sleep 15s
+  nowplaying=$(mpc -f "Now Playing: %artist% - %title%" | egrep Now\ Playing: | awk 'sub(/Now Playing:/,"") { print $N, "   |   " }' | tr '[:lower:]' '[:upper:]')
+
+  vol=$(amixer sget Master | egrep Front\ Right: | awk -F "[][]" '{ print "VOL", $2, "   |   " }')
+  battery=$(acpi -b | awk '{print "BAT", $NF, "   |   "}')
+
+  xsetroot -name "${nowplaying}${vol}${battery}$(date +"%^a %d %^b %Y %l:%M:%S %p")"
+  sleep .01s
 done &
 
 # turn off screen blanking
@@ -39,9 +41,6 @@ compton -b -e .3 --vsync opengl
 
 # this helps with full screen games
 wmname LG3D
-
-# gtk theme
-# export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # start dwm
 exec /usr/bin/dwm
