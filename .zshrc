@@ -19,12 +19,12 @@ alias steamdep='ldd ~/.local/share/Steam/ubuntu12_32/steamclient.so'
 alias steam-wine='wine /data/games/wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-dwrite'
 alias genpw='read -s PASS; echo $PASS | sha256sum | hex2ascii; echo'
 
-export WINEPREFIX=/data/games/wine/
 export EDITOR=vim
-#export PS1='[%n@%m %1~]$ '
-export PS1='@%m %1~ $ '
+export MPD_HOST=/var/lib/mpd/socket
 export PATH=~/bin:$PATH
 source /usr/share/doc/pkgfile/command-not-found.zsh
+export PS1='@%m %1~ $ '
+export WINEPREFIX=~/.wine/
 
 # Colored man pages: http://linuxtidbits.wordpress.com/2009/03/23/less-colors-for-man-pages/
 # Less Colors for Man Pages

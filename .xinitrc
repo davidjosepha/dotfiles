@@ -14,10 +14,10 @@ fi
 
 # status bar
 while true; do
-  nowplaying=$(mpc -f "Now Playing: %artist% - %title%" | egrep Now\ Playing: | awk 'sub(/Now Playing:/,"") { print $N, "   |   " }' | tr '[:lower:]' '[:upper:]')
+  nowplaying=$(mpc -f "Now Playing: %artist% - %title%" | egrep Now\ Playing: | awk 'sub(/Now Playing:/,"") { print $N, "  |   " }' | tr '[:lower:]' '[:upper:]')
 
-  vol=$(amixer sget Master | egrep Front\ Right: | awk -F "[][]" '{ print "VOL", $2, "   |   " }')
-  battery=$(acpi -b | awk '{print "BAT", $NF, "   |   "}')
+  vol=$(amixer sget Master | egrep Front\ Right: | awk -F "[][]" '{ print "VOL", $2, "  |   " }')
+  battery=$(acpi -b | awk -F ", " '{print "BAT", $2, "  |   "}')
 
   xsetroot -name "${nowplaying}${vol}${battery}$(date +"%^a %d %^b %Y %l:%M:%S %p")"
   sleep .01s
