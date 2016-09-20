@@ -18,9 +18,10 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
-filetype plugin indent on
+"filetype plugin indent on
 " end vundle
 
 set tabstop=4
@@ -38,6 +39,21 @@ set mouse=a
 set noesckeys
 set nocompatible
 let mapleader = ","
+
+" filetype specific
+autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType scheme setlocal expandtab shiftwidth=2 softtabstop=2
+
+autocmd FileType cpp setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType php setlocal expandtab shiftwidth=4 softtabstop=4
+
+autocmd FileType html setlocal expandtab
+autocmd FileType css setlocal expandtab
+autocmd FileType javascript setlocal expandtab
+
+autocmd FileType yaml setlocal expandtab
 
 " mark 80 lines
 set colorcolumn=81
@@ -57,3 +73,5 @@ endfunc
 nnoremap <leader>n :call NumberToggle()<cr>
 
 "colors peachpuff
+
+set clipboard^=unnamed
