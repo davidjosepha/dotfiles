@@ -5,27 +5,22 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/davidjosepha/.zshrc'
+zstyle :compinstall filename '/home/david/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 alias ls='ls -h --color=auto -N'
-alias svim='sudo -E vim'
 alias screenfetch='screenfetch -c 04,00'
 alias scrot='scrot ~/ss/%Y-%m-%d-%H%M%S.png'
-#alias steam='STEAM_RUNTIME=0 steam'
-#alias steamlinker="LD_PRELOAD='/usr/\$LIB/libstdc++.so.6 /usr/\$LIB/libgcc_s.so.1 /usr/\$LIB/libxcb.so.1 /usr/\$LIB/libgpg-error.so' /usr/bin/steam"
+alias suvim='sudo -E vim'
 alias steamdep='ldd ~/.local/share/Steam/ubuntu12_32/steamclient.so'
-#alias steam-wine='wine /data/games/wine/drive_c/Program\ Files\ \(x86\)/Steam/Steam.exe -no-dwrite'
 alias genpw='read -s PASS; echo $PASS | sha256sum | hex2ascii; echo'
 
 export EDITOR=vim
 export PATH=~/go/bin:$PATH
 export PS1='@%m %1~ $ '
-#export WINEPREFIX=~/.wine/
-
 export STEAM_RUNTIME=0
 
 source /usr/share/doc/pkgfile/command-not-found.zsh
