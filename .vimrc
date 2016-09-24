@@ -12,36 +12,43 @@ Plugin 'vim-airline/vim-airline-themes'
 set laststatus=2
 let g:airline_theme='solarized'
 
-"Plugin 'wincent/command-t'
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive' " git
-Plugin 'fatih/vim-go' " go
+Plugin 'fatih/vim-go'       " go
 
 call vundle#end()
 filetype plugin indent on
 " end vundle
 
 " store vim files centrally
-" double slash stores full paths to prevent filename conflicts
 set undodir=~/.vim/tmp/undo//
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
+set undofile            " persistent undo history
 set backup
 
-syntax on
-let mapleader = "\<Space>"
+" system compatibility
+set mouse=a             " enable full mouse support
+set clipboard^=unnamed  " use system clipboard
 
-set showcmd
-set number          " show line number
-set ignorecase      " ignore case when searching and substituting
-set smartcase       " acknowledge case when upper
-set autoindent
+" general
+syntax on
+set encoding=utf-8
+"set hidden              " allow multiple files open in same window
 "set background=dark
-set mouse=a
+set number              " show line number
+set showcmd             " show command as typing
+
+" search
+set ignorecase          " ignore case when searching and substituting
+set smartcase           " acknowledge case when upper
+"set hlsearch            " highlight all search terms
+set incsearch           " search incrementally
+
 " caused problem with arrow keys in insert mode, solved with "nocompatible"
 set noesckeys
 set nocompatible
@@ -49,16 +56,18 @@ set nocompatible
 " mark 80 char
 set colorcolumn=81
 highlight ColorColumn ctermbg=9 ctermfg=7
+
 " highlight whitespace
 set list
-"set listchars=tab:▸\ ,eol:¬
-"set listchars=tab:»\ ,eol:¬
 set listchars=tab:→\ ,eol:¬
+
 " tabs/spaces
+set autoindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+
 " filetype specific
 autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -74,6 +83,9 @@ autocmd FileType javascript setlocal expandtab
 
 autocmd FileType yaml setlocal expandtab
 
+" shortcuts
+let mapleader = "\<Space>"
+
 " Set up a way to toggle between relative and absolute line numbering
 function! NumberToggle()
     if (&relativenumber)
@@ -84,6 +96,3 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
-
-" use system clipboard
-set clipboard^=unnamed
