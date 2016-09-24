@@ -18,10 +18,11 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " git
+Plugin 'fatih/vim-go' " go
 
 call vundle#end()
-"filetype plugin indent on
+filetype plugin indent on
 " end vundle
 
 set tabstop=4
