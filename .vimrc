@@ -25,22 +25,40 @@ call vundle#end()
 filetype plugin indent on
 " end vundle
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
+" store vim files centrally
+" double slash stores full paths to prevent filename conflicts
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set backup
+
+syntax on
+let mapleader = "\<Space>"
+
 set showcmd
-set number
-set ignorecase
-set smartcase
+set number          " show line number
+set ignorecase      " ignore case when searching and substituting
+set smartcase       " acknowledge case when upper
 set autoindent
 "set background=dark
 set mouse=a
 " caused problem with arrow keys in insert mode, solved with "nocompatible"
 set noesckeys
 set nocompatible
-let mapleader = ","
 
+" mark 80 char
+set colorcolumn=81
+highlight ColorColumn ctermbg=9 ctermfg=7
+" highlight whitespace
+set list
+"set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:»\ ,eol:¬
+set listchars=tab:→\ ,eol:¬
+" tabs/spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
 " filetype specific
 autocmd FileType c setlocal expandtab shiftwidth=4 softtabstop=4
 autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
@@ -56,12 +74,6 @@ autocmd FileType javascript setlocal expandtab
 
 autocmd FileType yaml setlocal expandtab
 
-" mark 80 lines
-set colorcolumn=81
-highlight ColorColumn ctermbg=9 ctermfg=7
-
-syntax on
-
 " Set up a way to toggle between relative and absolute line numbering
 function! NumberToggle()
     if (&relativenumber)
@@ -73,6 +85,5 @@ endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
 
-"colors peachpuff
-
+" use system clipboard
 set clipboard^=unnamed
