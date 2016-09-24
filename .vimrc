@@ -34,12 +34,15 @@ set backup
 " system compatibility
 set mouse=a             " enable full mouse support
 set clipboard^=unnamed  " use system clipboard
+set t_Co=16
+
+" theme
+"set background=dark
 
 " general
 syntax on
 set encoding=utf-8
 "set hidden              " allow multiple files open in same window
-"set background=dark
 set number              " show line number
 set showcmd             " show command as typing
 
