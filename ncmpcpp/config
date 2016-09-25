@@ -437,7 +437,7 @@ ignore_leading_the = yes
 #
 #mouse_list_scroll_whole_page = yes
 #
-#empty_tag_marker = <empty>
+empty_tag_marker =
 #
 tags_separator = " | "
 #
