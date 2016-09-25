@@ -32,7 +32,7 @@ mpd_port = 6600
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /var/lib/mpd/music
+mpd_music_dir = /var/lib/mpd/library
 #
 mpd_crossfade_time = 5
 #
