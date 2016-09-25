@@ -6,34 +6,34 @@
 ! black
 *.color0: #282a2e
 ! dark red
-*color1:  #973e26
+*color1:  #974d39
 ! dark green
-*color2:  #495843
+*color2:  #677c5e
 ! dark yellow
-*color3:  #dbc265
+*color3:  #dbcb91
 ! dark blue
-*color4:  #325aa0
+*color4:  #4868a0
 ! dark magenta
-*color5:  #7a8cac
+*color5:  #8f99ac
 ! dark cyan
-*color6:  #56787f
+*color6:  #6c7c7f
 ! light grey
 *color7:  #ccd7e9
 
 ! dark grey
 *.color8: #373b41
 ! red
-*color9:  #a85c38
+*color9:  #a8735a
 ! green
-*color10: #8ea476
+*color10: #9db683
 ! yellow
-*color11: #ebd452
+*color11: #ebdb82
 ! blue
-*color12: #5e99d1
+*color12: #89aed1
 ! magenta
-*color13: #9db5e1
+*color13: #bdcae1
 ! cyan
-*color14: #789b95
+*color14: #8a9b98
 ! white
 *color15: #fdf9f6
 
