@@ -18,7 +18,9 @@ let g:ctrlp_cmd = 'CtrlP'
 
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive' " git
-Plugin 'fatih/vim-go'       " go
+
+Plugin 'fatih/vim-go'           " go
+let g:go_fmt_experimental = 1   " prevent gofmt from destroying folds
 
 call vundle#end()
 filetype plugin indent on
@@ -51,6 +53,10 @@ set ignorecase          " ignore case when searching and substituting
 set smartcase           " acknowledge case when upper
 "set hlsearch            " highlight all search terms
 set incsearch           " search incrementally
+
+" folds
+set foldmethod=syntax
+set foldlevelstart=99
 
 " caused problem with arrow keys in insert mode, solved with "nocompatible"
 set noesckeys
