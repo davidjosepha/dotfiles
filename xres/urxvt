@@ -1,0 +1,7 @@
+URxvt.scrollBar: false
+URxvt.font: xft:Inconsolata LGC:style=Bold:pixelsize=9:antialias=true:hinting=true
+URxvt.boldFont:
+URxvt.letterSpace: -2
+URxvt.internalBorder: 10
+
+Xft.dpi: 96
