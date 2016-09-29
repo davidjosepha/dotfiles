@@ -41,6 +41,9 @@ set t_Co=16
 " theme
 "set background=dark
 
+" shortcuts
+let mapleader = "\<Space>"
+
 " general
 syntax on
 set encoding=utf-8
@@ -51,12 +54,15 @@ set showcmd             " show command as typing
 " search
 set ignorecase          " ignore case when searching and substituting
 set smartcase           " acknowledge case when upper
-"set hlsearch            " highlight all search terms
 set incsearch           " search incrementally
+set hlsearch            " highlight all search terms
+nnoremap <leader>/ :noh<cr>
 
 " folds
-set foldmethod=syntax
-set foldlevelstart=99
+set foldmethod=syntax                   " fold based on file's syntax
+set foldlevelstart=99                   " default to nothing folded
+autocmd BufWinLeave *.* mkview          " save folds et al when loading
+autocmd BufWinEnter *.* silent loadview " load folds et al when opening
 
 " caused problem with arrow keys in insert mode, solved with "nocompatible"
 set noesckeys
@@ -91,9 +97,6 @@ autocmd FileType css setlocal expandtab
 autocmd FileType javascript setlocal expandtab
 
 autocmd FileType yaml setlocal expandtab
-
-" shortcuts
-let mapleader = "\<Space>"
 
 " Set up a way to toggle between relative and absolute line numbering
 function! NumberToggle()
