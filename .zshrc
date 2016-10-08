@@ -20,7 +20,8 @@ alias steamdep='ldd ~/.local/share/Steam/ubuntu12_32/steamclient.so'
 alias genpw='read -s PASS; echo $PASS | sha256sum | hex2ascii; echo'
 
 export EDITOR=vim
-export PATH=~/go/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$HOME/bin:$PATH
 export PS1='@%m %1~ $ '
 export STEAM_RUNTIME=0
 
@@ -41,4 +42,3 @@ screengrab() {
     ffmpeg -f x11grab -s 1920x1080 -r 60 -i :0.0 -q:v 0 -vcodec huffyuv ~/grab.mkv
     ffmpeg -threads 8 -i ~/grab.mkv -crf 10 -b:v 3M ~/grab.webm
 }
-export GOPATH=~/go
