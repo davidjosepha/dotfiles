@@ -11,6 +11,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+alias chmodgw='sudo chmod -R ugo+rwX,o-w'
 alias ls='ls -h --color=auto -N'
 alias screenfetch='screenfetch -c 04,00'
 alias scrot='scrot ~/ss/%Y-%m-%d-%H%M%S.png'
@@ -37,7 +38,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # webm
 screengrab() {
-    ffmpeg -f x11grab -s 1920x1080 -r 60 -i :0.0 -q:v 0 -vcodec huffyuv ~/grab.mkv 
+    ffmpeg -f x11grab -s 1920x1080 -r 60 -i :0.0 -q:v 0 -vcodec huffyuv ~/grab.mkv
     ffmpeg -threads 8 -i ~/grab.mkv -crf 10 -b:v 3M ~/grab.webm
 }
 export GOPATH=~/go
