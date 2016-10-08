@@ -39,7 +39,7 @@ set clipboard^=unnamed  " use system clipboard
 set t_Co=16
 
 " theme
-"set background=dark
+set background=dark
 
 " shortcuts
 let mapleader = "\<Space>"
