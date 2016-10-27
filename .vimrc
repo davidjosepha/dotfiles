@@ -15,6 +15,7 @@ let g:airline_theme='solarized'
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-fugitive' " git
@@ -108,3 +109,5 @@ function! NumberToggle()
 endfunc
 
 nnoremap <leader>n :call NumberToggle()<cr>
+nnoremap <C-w>" :split<cr>
+nnoremap <C-w>% :vsplit<cr>
