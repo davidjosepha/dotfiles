@@ -12,6 +12,7 @@ compinit
 # End of lines added by compinstall
 
 alias chmodgw='sudo chmod -R ugo+rwX,o-w'
+alias git-locate='git ls-files | grep'
 alias ls='ls -h --color=auto -N'
 alias screenfetch='screenfetch -c 04,00'
 alias scrot='scrot ~/ss/%Y-%m-%d-%H%M%S.png'
