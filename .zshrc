@@ -12,16 +12,17 @@ compinit
 # End of lines added by compinstall
 
 alias chmodgw='sudo chmod -R ugo+rwX,o-w'
+alias diff='diff -aur --color'
 alias git-locate='git ls-files | grep'
 alias ls='ls -h --color=auto -N'
 alias screenfetch='screenfetch -c 04,00'
 alias scrot='scrot ~/ss/%Y-%m-%d-%H%M%S.png'
 alias suvim='sudo -E vim'
 alias steamdep='ldd ~/.local/share/Steam/ubuntu12_32/steamclient.so'
-alias genpw='read -s PASS; echo $PASS | sha256sum | hex2ascii; echo'
+alias pw='read -s PASS; echo $PASS | sha256sum | hex2ascii; echo'
 
 export EDITOR=vim
-export GOPATH=$HOME/go
+export GOPATH=$HOME
 export PATH=$GOPATH/bin:$HOME/bin:$PATH
 export PS1='@%m %1~ $ '
 export STEAM_RUNTIME=0
